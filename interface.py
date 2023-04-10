@@ -1,6 +1,6 @@
 from tkinter import *
 from customtkinter import *
-from transfer import move_files
+from transfer import move_files, delete_empty_folders
 
 class App(Tk):
     def __init__(self):
@@ -52,6 +52,11 @@ class App(Tk):
                            command=self.move_files)
         self.button_start.pack(anchor=SE, padx=50)
 
+        self.button_start = CTkButton(self.frame,
+                           text="Delete Folders",
+                           command=self.del_empty_fol)
+        self.button_start.pack(anchor=SE, padx=50, pady=10)
+
         self.label_appearance = CTkLabel(self.frame,
                           text="Appearance Mode")
         self.label_appearance.pack(anchor=SW, padx=25)
@@ -74,3 +79,9 @@ class App(Tk):
         files_path = self.entry_files_path.get()
         files_extension = self.entry_files_extension.get()
         move_files(folder_path, folder_name, files_path, files_extension)
+    
+    def del_empty_fol(self):
+        folder_path = self.entry_folder_path.get()
+        folder_name = self.entry_folder_name.get()
+        delete_empty_folders(folder_path, folder_name)
+
