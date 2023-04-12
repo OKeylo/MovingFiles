@@ -1,5 +1,6 @@
 from tkinter import *
 from customtkinter import *
+from transfer import delete_empty_folders
 
 class Del_fold(CTkFrame):
     def __init__(self, master):
@@ -16,7 +17,11 @@ class Del_fold(CTkFrame):
 
         self.button_start = CTkButton(self,
                            text="Delete Folders",
-                           command="")
+                           command=self.del_empty_fol)
         self.button_start.pack(anchor=SE, padx=50, pady=10)
 
         self.pack(expand=True, fill=BOTH)
+
+    def del_empty_fol(self):
+        folder_path = self.entry_folder_path.get()
+        delete_empty_folders(folder_path)
