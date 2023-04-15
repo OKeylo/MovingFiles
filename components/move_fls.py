@@ -15,14 +15,10 @@ class Move_fls(CTkFrame):
                                           width=500)
         self.entry_folder_path.pack(anchor=W, padx=50, pady=(0,5))
 
-        self.label_folder_name = CTkLabel(self,
-                                          text="Folder name")
-        self.label_folder_name.pack(anchor=W, padx=50, pady=(0,0))
-
-        self.entry_folder_name = CTkEntry(self, 
-                                          placeholder_text="Enter a folder name", 
-                                          width=500)
-        self.entry_folder_name.pack(anchor=W, padx=50, pady=(0,5))
+        self.button_fold_sel = CTkButton(self,
+                           text="Folder Selection",
+                           command=lambda : self.open_folder_selection(self.entry_folder_path))
+        self.button_fold_sel.pack(anchor=E, padx=50)
 
         self.label_files_path = CTkLabel(self,
                                          text="The path from where the files will be moved")
@@ -32,6 +28,11 @@ class Move_fls(CTkFrame):
                                           placeholder_text="Enter the path from where the files will be moved using \\\\", 
                                           width=500)
         self.entry_files_path.pack(anchor=W, padx=50, pady=(0,5))
+
+        self.button_path_sel = CTkButton(self,
+                           text="Folder Selection",
+                           command=lambda: self.open_folder_selection(self.entry_files_path))
+        self.button_path_sel.pack(anchor=E, padx=50)
 
         self.label_files_extension = CTkLabel(self,
                                               text="Files extension")
@@ -65,7 +66,11 @@ class Move_fls(CTkFrame):
 
     def move_files_same_ext(self):
         folder_path = self.entry_folder_path.get()
-        folder_name = self.entry_folder_name.get()
         files_path = self.entry_files_path.get()
         files_extension = self.entry_files_extension.get()
-        move_files_same_extension(folder_path, folder_name, files_path, files_extension)
+        move_files_same_extension(folder_path, files_path, files_extension)
+
+    def open_folder_selection(self, entry_id):
+        folder_path = filedialog.askdirectory()
+        entry_id.delete(0, "end")
+        entry_id.insert(0, folder_path)

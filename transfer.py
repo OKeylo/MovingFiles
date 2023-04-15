@@ -1,8 +1,8 @@
 from pathlib import *
 import shutil
 
-def move_files_same_extension(folder_path:str, folder_name:str, files_path:str, files_extension:str):
-    fol_path = Path(folder_path, folder_name)
+def move_files_same_extension(folder_path:str, files_path:str, files_extension:str):
+    fol_path = Path(folder_path)
     f_path = Path(files_path)
 
     if not fol_path.is_dir():
