@@ -2,7 +2,7 @@ from customtkinter import *
 
 class Settings(CTkFrame):
     def __init__(self, master):
-        super().__init__(master=master)
+        super().__init__(master=master, corner_radius=0)
 
         self.label_appearance = CTkLabel(self,
                           text="Appearance Mode")

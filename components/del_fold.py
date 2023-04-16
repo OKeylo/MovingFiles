@@ -4,7 +4,7 @@ from transfer import delete_empty_folders
 
 class Del_fold(CTkFrame):
     def __init__(self, master):
-        super().__init__(master=master)
+        super().__init__(master=master, corner_radius=0)
 
         self.label_folder_path = CTkLabel(self,
                                           text="The path for the folder")

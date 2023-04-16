@@ -4,7 +4,7 @@ from transfer import move_files_same_extension
 
 class Move_fls(CTkFrame):
     def __init__(self, master):
-        super().__init__(master=master)
+        super().__init__(master=master, corner_radius=0)
         
         self.label_origin_path = CTkLabel(self,
                                          text="Origin path")
