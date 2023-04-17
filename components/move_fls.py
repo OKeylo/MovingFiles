@@ -16,7 +16,7 @@ class Move_fls(CTkFrame):
         self.entry_origin_path.pack(anchor=W, padx=50, pady=(0,5))
 
         self.button_path_sel = CTkButton(self,
-                           text="Folder Selection",
+                           text="Path Selection",
                            command=lambda: self.open_folder_selection(self.entry_origin_path))
         self.button_path_sel.pack(anchor=E, padx=50)
 
@@ -30,7 +30,7 @@ class Move_fls(CTkFrame):
         self.entry_destination_path.pack(anchor=W, padx=50, pady=(0,5))
 
         self.button_fold_sel = CTkButton(self,
-                           text="Folder Selection",
+                           text="Path Selection",
                            command=lambda : self.open_folder_selection(self.entry_destination_path))
         self.button_fold_sel.pack(anchor=E, padx=50)
 
@@ -46,7 +46,7 @@ class Move_fls(CTkFrame):
         self.button_start = CTkButton(self,
                            text="Start",
                            command=self.move_files_same_ext)
-        self.button_start.pack(anchor=SE, padx=50)
+        self.button_start.pack(anchor=N, padx=50)
 
         self.pack(expand=True, fill=BOTH)
 
